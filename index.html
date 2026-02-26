@@ -113,7 +113,17 @@ function launchConfetti() {
     }, 3000);
   }
 }
+  <script>
+function startParty() {
+  document.getElementById("music").play();
+}
 </script>
+  
+<button onclick="startParty()">🚀 START THE PARTY</button>
 
+<audio id="music">
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+  
 </body>
 </html>
