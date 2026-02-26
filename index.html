@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HAPPY BIRTHDAY doggy 🔥</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 60px;
+  color: #00ffea;
+  text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 40px #00ffea;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+p {
+  font-size: 22px;
+  margin-top: 10px;
+  color: #ffcc00;
+}
+
+button {
+  margin-top: 30px;
+  padding: 18px 35px;
+  font-size: 20px;
+  border: none;
+  border-radius: 40px;
+  background: #ff0055;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 20px #ff0055;
+}
+
+button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px #ff0055;
+}
+
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: red;
+  animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); }
+  100% { transform: translateY(110vh); }
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<h1>HAPPY BIRTHDAY doggy 🔥</h1>
+<p>Alright doggy boi. 💪🎮</p>
+
+<button onclick="startParty()">🚀 START THE PARTY</button>
+
+<audio id="music">
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<footer class="footer">
+  Made with 🔥 by Suraj
+</footer>
+
+<script>
+function startParty() {
+  document.getElementById("music").play();
+  launchConfetti();
+}
+
+function launchConfetti() {
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      ["#ff0055", "#00ffea", "#ffcc00", "#00ff00"][Math.floor(Math.random()*4)];
+    confetti.style.animationDuration = (Math.random()*2+2) + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
+}
+</script>
+
+</body>
+</html>
